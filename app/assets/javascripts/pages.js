@@ -33,12 +33,25 @@ $(document).ready(function () {
         var img_url = "http://farm"+ item.farm +".static.flickr.com/"+ item.server +"/"+ item.id +"_"+ item.secret +"_m.jpg";
         // set a img tag
         var $img = $('<img>');
+        console.log($img)
+
         // add the 'src' and img_url to 'img' tag
         $img.attr('src', img_url);
         // inset the img tag to the div
         $('#images').append($img);
         $img.hide();
         $img.fadeIn(2000);
+        ///////////////////////////
+        //added a zoom out function to enlarge the image
+      	var zoomOut = function(){
+      		$($img).on('click', function(){
+   							$(this).toggleClass('enlarged')
+
+   						});
+      	};
+
+   			zoomOut()
+   	
 
       };
       //re-set to false, allows to search for more pages
